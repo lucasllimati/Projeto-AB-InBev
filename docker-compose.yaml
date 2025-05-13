@@ -124,7 +124,7 @@ services:
     volumes:
       - ./dags:/opt/airflow/dags
       - ./data_lake:/opt/airflow/data_lake
-        
+      - ./logs:/opt/airflow/logs        
 
   airflow-scheduler:
     <<: *airflow-common
@@ -142,6 +142,7 @@ services:
     volumes:
       - ./dags:/opt/airflow/dags
       - ./data_lake:/opt/airflow/data_lake
+      - ./logs:/opt/airflow/logs
 
   airflow-worker:
     <<: *airflow-common
@@ -166,6 +167,7 @@ services:
     volumes:
       - ./dags:/opt/airflow/dags
       - ./data_lake:/opt/airflow/data_lake
+      - ./logs:/opt/airflow/logs
 
   airflow-triggerer:
     <<: *airflow-common
