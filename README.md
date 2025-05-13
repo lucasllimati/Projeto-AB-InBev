@@ -115,20 +115,20 @@ Abaixo esta mais detalhes de como foi desenvolvido esse processo.
 
 ### Main.py
 
-Extração: Realiza a extração dos dados da API Open Brewery DB, coletando a lista completa de cervejarias de forma paginada. Os dados são armazenados em formato JSON na camada bronze. Também há uma etapa adicional que converte esse JSON para CSV, facilitando a visualização e exploração.
+**Extração**: Realiza a extração dos dados da API Open Brewery DB, coletando a lista completa de cervejarias de forma paginada. Os dados são armazenados em formato JSON na camada bronze. Também há uma etapa adicional que converte esse JSON para CSV, facilitando a visualização e exploração.
 
-Transformação (Limpeza): Remove espaços em branco das colunas, elimina registros inválidos (como linhas sem brewery_type e IDs duplicados), preenche valores nulos na coluna website_url com "N/A", normaliza os textos (sem acentos, tudo em minúsculas e sem espaços extras) e valida as coordenadas geográficas (removendo valores fora dos limites esperados). Após os tratamentos, os dados são particionados por estado e salvos em formato .parquet na camada silver.
+**Transformação (Limpeza)**: Remove espaços em branco das colunas, elimina registros inválidos (como linhas sem brewery_type e IDs duplicados), preenche valores nulos na coluna website_url com "N/A", normaliza os textos (sem acentos, tudo em minúsculas e sem espaços extras) e valida as coordenadas geográficas (removendo valores fora dos limites esperados). Após os tratamentos, os dados são particionados por estado e salvos em formato .parquet na camada silver.
 
-Agregação: Consolida os dados transformados, agrupando por tipo de cervejaria e estado, e salva o resultado final na camada gold, também em formato .parquet.
+**Agregação**: Consolida os dados transformados, agrupando por tipo de cervejaria e estado, e salva o resultado final na camada gold, também em formato .parquet.
 
-Obs: A etapa de testes foi desenvolvida de forma simples, utilizando o Try Catch para exibir os erros e jogando no log.
+*Obs: A etapa de testes foi desenvolvida de forma simples, utilizando o Try Catch para exibir os erros e jogando no log.*
 
 Resumo:
 O pipeline segue estas etapas:
-Extração: Coleta todos os dados da API paginadamente.
-Conversão: Transforma JSON → CSV.
-Transformação: Aplica tratamentos robustos (limpeza, padronização, filtro e particionamento).
-Agregação: Agrupa dados por tipo de cervejaria e estado.
+**Extração**: Coleta todos os dados da API paginadamente.
+**Conversão**: Transforma JSON → CSV.
+**Transformação**: Aplica tratamentos robustos (limpeza, padronização, filtro e particionamento).
+**Agregação**: Agrupa dados por tipo de cervejaria e estado.
 
 ### Brewery_dag.py
 
