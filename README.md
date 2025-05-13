@@ -124,10 +124,15 @@ Abaixo esta mais detalhes de como foi desenvolvido esse processo.
 *Obs: A etapa de testes foi desenvolvida de forma simples, utilizando o Try Catch para exibir os erros e jogando no log.*
 
 Resumo:
+
 O pipeline segue estas etapas:
+
 **Extração**: Coleta todos os dados da API paginadamente.
+
 **Conversão**: Transforma JSON → CSV.
+
 **Transformação**: Aplica tratamentos robustos (limpeza, padronização, filtro e particionamento).
+
 **Agregação**: Agrupa dados por tipo de cervejaria e estado.
 
 ### Brewery_dag.py
