@@ -1,0 +1,6 @@
+pandas
+requests
+unidecode
+pyspark
+pytest
+apache-airflow

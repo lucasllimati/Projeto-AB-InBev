@@ -1,0 +1,3 @@
+*.log
+dags/__pycache__/brewery_dag.cpython-37.pyc
+*.pyc
