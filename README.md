@@ -1,16 +1,12 @@
 # 🍺 BEES Data Engineering – Breweries Case
 
-## ✅ Tradução
-
-Tradução da documentação recebida com os requisitos.
-
 ### 🎯 Objetivo
 
-Avaliar suas habilidades em consumir dados de uma API, transformá-los e persistí-los em um data lake utilizando a arquitetura *medallion* (com três camadas: raw, curated e analytical).
+Consumir dados de uma API, transformos dados e utilizando o data lake com a arquitetura *medallion*.
 
 ---
 
-### 📋 Instruções
+### 📋 Instruções do Desafio
 
 - **API:** Use a Open Brewery DB API para buscar os dados de cervejarias.  
   👉 [https://www.openbrewerydb.org/](https://www.openbrewerydb.org/)
@@ -52,6 +48,12 @@ Avaliar suas habilidades em consumir dados de uma API, transformá-los e persist
 
 ---
 
+## Como executar a aplicação
+
+## Lógica do desenvolvimento
+
+### Melhorias
+
 ## ✅ Checklist do Projeto
 
 Checklist de acompanhamento:
@@ -63,9 +65,9 @@ Checklist de acompanhamento:
 
 ### ⚙️ Orquestração
 
-- [ ] Escolher ferramenta (Airflow, Luigi, Mage, etc.)  
-- [ ] Implementar agendamento  
-- [ ] Implementar tentativas e tratamento de erros
+- [x] Escolher ferramenta (Airflow, Luigi, Mage, etc.)  
+- [x] Implementar agendamento  
+- [x] Implementar tentativas e tratamento de erros
 
 ### 🐍 Linguagem
 
@@ -74,15 +76,15 @@ Checklist de acompanhamento:
 
 ### 🐳 Containerização (opcional, mas recomendada)
 
-- [ ] Criar Dockerfile  
-- [ ] Executar aplicação em container
+- [x] Criar Dockerfile  
+- [x] Executar aplicação em container
 
 ### 🏗️ Arquitetura Medallion
 
 - [x] Bronze Layer: salvar dados brutos da API  
-- [ ] Silver Layer: transformar para parquet/delta  
-- [ ] Silver Layer: particionar por localização  
-- [ ] Gold Layer: criar agregação por tipo e localização
+- [x] Silver Layer: transformar para parquet/delta  
+- [x] Silver Layer: particionar por localização  
+- [x] Gold Layer: criar agregação por tipo e localização
 
 ### 📡 Monitoramento e Alertas
 
@@ -90,9 +92,9 @@ Checklist de acompanhamento:
 
 ### 📁 Repositório GitHub
 
-- [ ] Subir projeto para repositório público  
-- [ ] Documentar decisões técnicas  
-- [ ] Incluir instruções de execução (README)
+- [x] Subir projeto para repositório público  
+- [x] Documentar decisões técnicas  
+- [x] Incluir instruções de execução (README)
 
 ### ☁️ Serviços em Nuvem (se aplicável)
 
@@ -100,5 +102,5 @@ Checklist de acompanhamento:
 
 ### ⏱️ Prazos
 
-- [ ] Entregar em até 1 semana  
-- [ ] Compartilhar link do repositório GitHub com o time BEES
+- [x] Entregar em até 1 semana  
+- [x] Compartilhar link do repositório GitHub com o time BEES
