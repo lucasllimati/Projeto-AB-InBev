@@ -165,6 +165,12 @@ O processo gera logs do próprio fluxo do Airflow e também de etapas que foram 
 - Simplificar a configuração do docker-compose.yaml e Dockerfil. Esta com a imagem um pouco pesada e como é um processo simples, porém como tive vários problemas de compatibilidade, acabei deixndo dessa forma.
 - Melhoria dos Logs (Foram desenvolvidos no Main.py), porém quando passei para o Airflow ele acaba ficando um pouco fora do padrão e seria interessante simplificar e padronizar os logs.
 - Melhoria nos caracteres especiais que temos na base por conta de vários idiomas, exemplo, Polônia e Coreia do Sul (Tentei desenvolver mas não deu certo). Além de alguns caracteres especiais que não conseguir retirar.
+- Ajuste do parametro AIRFLOW_UID, fiz as configurações e olhei na documentação, tanta com o valor padrão quando setando alguns valores, esse warning continua.
+
+    ```bash
+      time="2025-05-13T08:51:47-03:00" level=warning msg="The \"AIRFLOW_UID\" variable is not set. Defaulting to a blank string."
+    ```
+
 - Envio de e-mail em caso de sucesso ou falha.
 - Criação de cenários de testes.
 - Após as melhorias publicar em Nuvem, facilitando a manutenção e não dependendo de uma máquina especifica para executar o processo.
