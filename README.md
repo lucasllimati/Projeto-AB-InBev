@@ -111,9 +111,57 @@ Para baixar também é necessário ter o [Git](https://git-scm.com/downloads) in
 
 ## Lógica do desenvolvimento
 
-### Melhorias
+Abaixo esta mais detalhes de como foi desenvolvido esse processo.
+
+### Main.py
+
+Extração: Realiza a extração dos dados da API Open Brewery DB, coletando a lista completa de cervejarias de forma paginada. Os dados são armazenados em formato JSON na camada bronze. Também há uma etapa adicional que converte esse JSON para CSV, facilitando a visualização e exploração.
+
+Transformação (Limpeza): Remove espaços em branco das colunas, elimina registros inválidos (como linhas sem brewery_type e IDs duplicados), preenche valores nulos na coluna website_url com "N/A", normaliza os textos (sem acentos, tudo em minúsculas e sem espaços extras) e valida as coordenadas geográficas (removendo valores fora dos limites esperados). Após os tratamentos, os dados são particionados por estado e salvos em formato .parquet na camada silver.
+
+Agregação: Consolida os dados transformados, agrupando por tipo de cervejaria e estado, e salva o resultado final na camada gold, também em formato .parquet.
+
+Obs: A etapa de testes foi desenvolvida de forma simples, utilizando o Try Catch para exibir os erros e jogando no log.
+
+Resumo:
+O pipeline segue estas etapas:
+Extração: Coleta todos os dados da API paginadamente.
+Conversão: Transforma JSON → CSV.
+Transformação: Aplica tratamentos robustos (limpeza, padronização, filtro e particionamento).
+Agregação: Agrupa dados por tipo de cervejaria e estado.
+
+### Brewery_dag.py
+
+Faz as configurações com as informações básicas, execução as funções e também o agendamento recorrente para a aplicação executar.
+
+### docker-compose.yaml
+
+Foi utilizado como refencia o modelo que esta no próprio site do airflow [link]().
+
+Esse arquivo é um docker-compose.yaml que configura um ambiente de Apache Airflow, com todas as configurações necessárias da aplicação que esta no docker para a integração com o orquestrador Apache Web.
+
+### Dockerfile
+
+Esse Dockerfile é uma configuração de um contêiner para rodar um projeto baseado em Apache Airflow com Python, onde as dependências e arquivos necessários são instalados e copiados para dentro do contêiner, junto com as bibliotecas e dependências.
+
+### Airflow
+
+Interface gráfica para executar, monitor os processos (DAGs) que estão sendo executadas. Durante a execução ele vai criando logs extras de toda a execução, melhorando a visibilidade e entendimento em caso de problemas.
+![Airflow - Graph - Fluxo de dados](image-2.png)
+![Airflow - Gantt](image-1.png)
+
+#### Logs
+
+O processo gera logs do próprio fluxo do Airflow e também de etapas que foram criadas durante o desenvolvimento do main.py.
+![Exemplo do Log - Transformar Dados](image.png)
 
 ## ✅ Checklist do Projeto
+
+- Simplificar a configuração do docker-compose.yaml e Dockerfil. Esta com a imagem um pouco pesada e como é um processo simples, porém como tive vários problemas de compatibilidade, acabei deixndo dessa forma.
+- Melhoria dos Logs (Foram desenvolvidos no Main.py), porém quando passei para o Airflow ele acaba ficando um pouco fora do padrão e seria interessante simplificar e padronizar os logs.
+- Envio de e-mail em caso de sucesso ou falha.
+- Criação de cenários de testes.
+- Após as melhorias publicar em Nuvem, facilitando a manutenção e não dependendo de uma máquina especifica para executar o processo.
 
 Checklist de acompanhamento:
 
@@ -147,7 +195,7 @@ Checklist de acompanhamento:
 
 ### 📡 Monitoramento e Alertas
 
-- [ ] Definir abordagem para monitoramento de falhas e qualidade de dados
+- [x] Definir abordagem para monitoramento de falhas e qualidade de dados
 
 ### 📁 Repositório GitHub
 
