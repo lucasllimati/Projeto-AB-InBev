@@ -160,7 +160,7 @@ Interface gráfica para executar, monitor os processos (DAGs) que estão sendo e
 O processo gera logs do próprio fluxo do Airflow e também de etapas que foram criadas durante o desenvolvimento do main.py.
 ![Exemplo do Log - Transformar Dados](img/image.png)
 
-#### Melhorias
+#### Melhorias (ainda não foi possível desenvolver)
 
 - Simplificar a configuração do docker-compose.yaml e Dockerfil. Esta com a imagem um pouco pesada e como é um processo simples, porém como tive vários problemas de compatibilidade, acabei deixndo dessa forma.
 - Melhoria dos Logs (Foram desenvolvidos no Main.py), porém quando passei para o Airflow ele acaba ficando um pouco fora do padrão e seria interessante simplificar e padronizar os logs.
