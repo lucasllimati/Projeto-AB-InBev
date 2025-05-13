@@ -8,8 +8,8 @@ import os
 # sys.path.append(os.path.abspath("."))
 # Adiciona o diretório raiz ao sys.path para importar do main
 
-# ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
-# sys.path.append(ROOT_DIR)
+ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+sys.path.append(ROOT_DIR)
 
 # Importa as funções diretamente do main
 from main import (
