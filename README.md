@@ -141,7 +141,7 @@ Faz as configurações com as informações básicas, execução as funções e 
 
 ### docker-compose.yaml
 
-Foi utilizado como refencia o modelo que esta no próprio site do airflow [link](www.teste.com).
+Foi utilizado como refencia o modelo que esta no próprio site do airflow [link](https://airflow.apache.org/docs/apache-airflow/2.5.1/docker-compose.yaml).
 
 Esse arquivo é um docker-compose.yaml que configura um ambiente de Apache Airflow, com todas as configurações necessárias da aplicação que esta no docker para a integração com o orquestrador Apache Web.
 
@@ -152,18 +152,19 @@ Esse Dockerfile é uma configuração de um contêiner para rodar um projeto bas
 ### Airflow
 
 Interface gráfica para executar, monitor os processos (DAGs) que estão sendo executadas. Durante a execução ele vai criando logs extras de toda a execução, melhorando a visibilidade e entendimento em caso de problemas.
-![Airflow - Graph - Fluxo de dados](image-2.png)
-![Airflow - Gantt](image-1.png)
+![Airflow - Graph - Fluxo de dados](img/image-2.png)
+![Airflow - Gantt](img/image-1.png)
 
 #### Logs
 
 O processo gera logs do próprio fluxo do Airflow e também de etapas que foram criadas durante o desenvolvimento do main.py.
-![Exemplo do Log - Transformar Dados](image.png)
+![Exemplo do Log - Transformar Dados](img/image.png)
 
 ## ✅ Checklist do Projeto
 
 - Simplificar a configuração do docker-compose.yaml e Dockerfil. Esta com a imagem um pouco pesada e como é um processo simples, porém como tive vários problemas de compatibilidade, acabei deixndo dessa forma.
 - Melhoria dos Logs (Foram desenvolvidos no Main.py), porém quando passei para o Airflow ele acaba ficando um pouco fora do padrão e seria interessante simplificar e padronizar os logs.
+- Melhoria nos caracteres especiais que temos na base por conta de vários idiomas, exemplo, Polônia e Coreia do Sul (Tentei desenvolver mas não deu certo). Além de alguns caracteres especiais que não conseguir retirar.
 - Envio de e-mail em caso de sucesso ou falha.
 - Criação de cenários de testes.
 - Após as melhorias publicar em Nuvem, facilitando a manutenção e não dependendo de uma máquina especifica para executar o processo.
